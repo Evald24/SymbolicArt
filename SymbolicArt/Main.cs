@@ -35,45 +35,50 @@ namespace SymbolicArt
         private void SelectImage_Click(object sender, EventArgs e)
         {
             if (ImageDialog.ShowDialog() != DialogResult.OK) return;
-            img = new Bitmap(ImageDialog.FileName);
-            pictureBox1.Image = img;
+
+            pictureBox1.Image = new Bitmap(ImageDialog.FileName); 
+            img = new Bitmap(pictureBox1.Image);
             ImageWidth.Maximum = img.Width;
             textBox2.Text = null;
         }
-        Thread GenTheread;
         private void Generate_Click(object sender, EventArgs e)
         {
             if (textBox2.Text.Trim() == "")
             {
+
                 if (img != null)
                 {
-                    int imgwidth = img.Width;
-                    if (ImageWidth.Enabled)
-                        imgwidth = Convert.ToInt32(ImageWidth.Text);
-                    GenTheread = new System.Threading.Thread(delegate() { M_Gen(img, imgwidth, OutputHTML.Checked); });
-                    GenTheread.Start();
+                    Task T = Task.Factory.StartNew(() =>
+                        {
+                            int imgwidth = img.Width;
+                            if (ImageWidth.Enabled)
+                                imgwidth = Convert.ToInt32(ImageWidth.Text);
+                            _L_Status.BeginInvoke(new Action(() => { _L_Status.Text = "Приобразование в символы"; }));
+                            ConvertToSymbol.Generate(this, GeneratedText, (Bitmap)img.Clone(), imgwidth, OutputHTML.Checked);
+                        });
                 }
                 else
                     MessageDialog.ShowBoxOk("Выберите изображение на компьютере или вставьте ссылку!");
             }
             else
             {
-                pictureBox1.Load(textBox2.Text);
-                img = new Bitmap(pictureBox1.Image);
-                int imgwidth = img.Width;
-                if (ImageWidth.Enabled)
-                    imgwidth = Convert.ToInt32(ImageWidth.Text);
-                GenTheread = new System.Threading.Thread(delegate() { M_Gen(img, imgwidth, OutputHTML.Checked); });                
-                GenTheread.Start();
+                Task T = Task.Factory.StartNew(() =>
+                {
+                    _L_Status.BeginInvoke(new Action(() => { _L_Status.Text = "Загрузка изображения"; }));
+                    pictureBox1.Load(textBox2.Text);
+                    img = new Bitmap(pictureBox1.Image);
+                    int imgwidth = img.Width;
+                    if (ImageWidth.Enabled)
+                        imgwidth = Convert.ToInt32(ImageWidth.Text);
+                    _L_Status.BeginInvoke(new Action(() => { _L_Status.Text = "Приобразование в символы"; }));
+                    Task.Factory.StartNew(() =>
+                    {
+                        ConvertToSymbol.Generate(this, GeneratedText, (Bitmap)img.Clone(), imgwidth, OutputHTML.Checked);
+                    });
+                });
             }
-
         }
                 
-        private static void M_Gen(Bitmap img, int imgwidth, bool status)
-        {
-            Application.OpenForms.OfType<Main>().Single().GeneratedText.BeginInvoke(new Action(() => { Application.OpenForms.OfType<Main>().Single().GeneratedText.Text = ConvertToSymbol.Generate(img, imgwidth, status); }));
-        }
-        
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             ImageWidth.Enabled = false;
@@ -121,8 +126,7 @@ namespace SymbolicArt
 
         private void GeneratedText_TextChanged(object sender, EventArgs e)
         {
-            Text = String.Format("Преобразователь изображения в символы | Использовано {0} символов", (sender as RichTextBox).Text.Length.ToString());
-            GenTheread.Abort();
+            _L_Status.Text = String.Format("Использовано {0} символов", (sender as Control).Text.Length.ToString());
         }
     }
 }

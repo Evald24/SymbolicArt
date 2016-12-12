@@ -49,7 +49,7 @@
             this.SelectImage = new FYS.Windows.Cotrols.FYS_Button();
             this.Generate = new FYS.Windows.Cotrols.FYS_Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this._L_Status = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -313,18 +313,18 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // label6
+            // _L_Status
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(10, 481);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(175, 17);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Автор программы Эвальд";
+            this._L_Status.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._L_Status.AutoSize = true;
+            this._L_Status.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this._L_Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this._L_Status.ForeColor = System.Drawing.Color.White;
+            this._L_Status.Location = new System.Drawing.Point(10, 481);
+            this._L_Status.Name = "_L_Status";
+            this._L_Status.Size = new System.Drawing.Size(410, 17);
+            this._L_Status.TabIndex = 9;
+            this._L_Status.Text = "Выберите изображение на компьютере или вставьте ссылку";
             // 
             // Main
             // 
@@ -332,7 +332,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 500);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this._L_Status);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(700, 500);
@@ -341,7 +341,7 @@
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Main_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Main_DragEnter);
             this.Controls.SetChildIndex(this.panel1, 0);
-            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this._L_Status, 0);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -374,7 +374,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label _L_Status;
         public System.Windows.Forms.RichTextBox GeneratedText;
     }
 }
