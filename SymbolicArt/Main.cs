@@ -54,7 +54,7 @@ namespace SymbolicArt
                     GenTheread.Start();
                 }
                 else
-                    MessageDialog.ShowBoxOk("Выберите изображение!");
+                    MessageDialog.ShowBoxOk("Выберите изображение на компьютере или вставьте ссылку!");
             }
             else
             {
@@ -63,7 +63,7 @@ namespace SymbolicArt
                 int imgwidth = img.Width;
                 if (ImageWidth.Enabled)
                     imgwidth = Convert.ToInt32(ImageWidth.Text);
-                GenTheread = new System.Threading.Thread(delegate() { M_Gen(img, imgwidth, OutputHTML.Checked); });
+                GenTheread = new System.Threading.Thread(delegate() { M_Gen(img, imgwidth, OutputHTML.Checked); });                
                 GenTheread.Start();
             }
 
