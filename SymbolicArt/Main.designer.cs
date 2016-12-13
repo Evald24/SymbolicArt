@@ -32,6 +32,7 @@
             this.ImageDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this._PB_Load = new System.Windows.Forms.PictureBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.GeneratedText = new System.Windows.Forms.RichTextBox();
             this._P_Configure = new System.Windows.Forms.Panel();
@@ -50,13 +51,12 @@
             this.Generate = new FYS.Windows.Cotrols.FYS_Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this._L_Status = new System.Windows.Forms.Label();
-            this._PB_Load = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._PB_Load)).BeginInit();
             this._P_Configure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._PB_Load)).BeginInit();
             this.SuspendLayout();
             // 
             // ImageDialog
@@ -85,6 +85,19 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(696, 450);
             this.panel4.TabIndex = 2;
+            // 
+            // _PB_Load
+            // 
+            this._PB_Load.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._PB_Load.Enabled = false;
+            this._PB_Load.Image = global::SymbolicArt.Properties.Resources.loading;
+            this._PB_Load.Location = new System.Drawing.Point(424, 167);
+            this._PB_Load.Name = "_PB_Load";
+            this._PB_Load.Size = new System.Drawing.Size(128, 128);
+            this._PB_Load.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this._PB_Load.TabIndex = 15;
+            this._PB_Load.TabStop = false;
+            this._PB_Load.Visible = false;
             // 
             // splitter1
             // 
@@ -329,19 +342,6 @@
             this._L_Status.TabIndex = 9;
             this._L_Status.Text = "Выберите изображение на компьютере или вставьте ссылку";
             // 
-            // _PB_Load
-            // 
-            this._PB_Load.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._PB_Load.Enabled = false;
-            this._PB_Load.Image = global::SymbolicArt.Properties.Resources.loading;
-            this._PB_Load.Location = new System.Drawing.Point(424, 167);
-            this._PB_Load.Name = "_PB_Load";
-            this._PB_Load.Size = new System.Drawing.Size(128, 128);
-            this._PB_Load.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this._PB_Load.TabIndex = 15;
-            this._PB_Load.TabStop = false;
-            this._PB_Load.Visible = false;
-            // 
             // Main
             // 
             this.AllowDrop = true;
@@ -361,11 +361,11 @@
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._PB_Load)).EndInit();
             this._P_Configure.ResumeLayout(false);
             this._P_Configure.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._PB_Load)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

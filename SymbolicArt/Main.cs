@@ -19,8 +19,8 @@ namespace SymbolicArt
         public Main()
         {
             InitializeComponent();
-
         }
+
         protected override CreateParams CreateParams  //Уберает мерцание всех элементов
         {
             get
@@ -74,14 +74,18 @@ namespace SymbolicArt
             {
                 Task.Factory.StartNew(() =>
                 {
-                    this.BeginInvoke(new Action(() => { _L_Status.Text = "Загрузка изображения"; }));
+                    this.BeginInvoke(new Action(() =>
+                    {
+                        _L_Status.Text = "Загрузка изображения";
+                        GeneratedText.Enabled = false;
+                    }));
                     try
                     {
                         pictureBox1.Load(_TB_URL.Text);
                     }
                     catch
                     {
-                        MessageDialog.ShowBoxOk("Не удалось загрузить изображение, проверьте правильность ссылки!");
+                        MessageDialog.ShowBoxOk("Не удалось загрузить изображение, проверьте правильность ссылки и соединение с интернетом!");
                         this.BeginInvoke(new Action(() =>
                         {
                             _P_Configure.Enabled = true;
@@ -91,6 +95,7 @@ namespace SymbolicArt
                         }));
                         return;
                     }
+                    Thread.Sleep(100);
                     img = new Bitmap(pictureBox1.Image);
                     int imgwidth = img.Width;
                     if (_RB_Yes.Checked)

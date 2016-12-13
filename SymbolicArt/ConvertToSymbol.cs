@@ -101,6 +101,7 @@ namespace SymbolicArt
                         control.Text = sbOutput.ToString();
                     }));
             });
+            return;
         }
 
        /* public static void Generate(Form form, object control, Bitmap bmInput, int outputWidth, bool html)
