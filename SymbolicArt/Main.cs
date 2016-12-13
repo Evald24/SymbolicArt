@@ -39,11 +39,11 @@ namespace SymbolicArt
             pictureBox1.Image = new Bitmap(ImageDialog.FileName); 
             img = new Bitmap(pictureBox1.Image);
             ImageWidth.Maximum = img.Width;
-            textBox2.Text = null;
+            _TB_URL.Text = null;
         }
         private void Generate_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text.Trim() == "")
+            if (_TB_URL.Text.Trim() == "")
             {
 
                 if (img != null)
@@ -54,7 +54,7 @@ namespace SymbolicArt
                             if (ImageWidth.Enabled)
                                 imgwidth = Convert.ToInt32(ImageWidth.Text);
                             _L_Status.BeginInvoke(new Action(() => { _L_Status.Text = "Приобразование в символы"; }));
-                            ConvertToSymbol.Generate(this, GeneratedText, (Bitmap)img.Clone(), imgwidth, OutputHTML.Checked);
+                            ConvertToSymbol.Generate(_TB_Symbols.Text, GeneratedText, (Bitmap)img.Clone(), imgwidth, OutputHTML.Checked);
                         });
                 }
                 else
@@ -65,7 +65,7 @@ namespace SymbolicArt
                 Task T = Task.Factory.StartNew(() =>
                 {
                     _L_Status.BeginInvoke(new Action(() => { _L_Status.Text = "Загрузка изображения"; }));
-                    pictureBox1.Load(textBox2.Text);
+                    pictureBox1.Load(_TB_URL.Text);
                     img = new Bitmap(pictureBox1.Image);
                     int imgwidth = img.Width;
                     if (ImageWidth.Enabled)
@@ -73,7 +73,7 @@ namespace SymbolicArt
                     _L_Status.BeginInvoke(new Action(() => { _L_Status.Text = "Приобразование в символы"; }));
                     Task.Factory.StartNew(() =>
                     {
-                        ConvertToSymbol.Generate(this, GeneratedText, (Bitmap)img.Clone(), imgwidth, OutputHTML.Checked);
+                        ConvertToSymbol.Generate(_TB_Symbols.Text, GeneratedText, (Bitmap)img.Clone(), imgwidth, OutputHTML.Checked);
                     });
                 });
             }
@@ -107,7 +107,7 @@ namespace SymbolicArt
             img = new Bitmap(Image.FromFile(files[0]));
             pictureBox1.Image = img;
             ImageWidth.Maximum = img.Width;
-            textBox2.Text = null;
+            _TB_URL.Text = null;
         }
 
         private void Main_DragEnter(object sender, DragEventArgs e)
@@ -126,7 +126,8 @@ namespace SymbolicArt
 
         private void GeneratedText_TextChanged(object sender, EventArgs e)
         {
-            _L_Status.Text = String.Format("Использовано {0} символов", (sender as Control).Text.Length.ToString());
+            if((sender as Control).Enabled)
+                _L_Status.Text = String.Format("Использовано {0} символов", (sender as Control).Text.Length.ToString());
         }
     }
 }

@@ -20,14 +20,15 @@ namespace SymbolicArt
         private const string HTMLBegin = "<!DOCTYPE html>\n\r    <head>\n\r        <meta charset=\"utf-8\">\n\r        <title>Заголовок</title>\n\r        <style>\n\r            .example {\n\r                font-family:Consolas,monospace;\n\r                font-size:7px;\n\r                white-space: nowrap;\n\r            }\n\r        </style>\n\r    </head>\n\r    <body>\n\r        <p class=\"example\">\n\r";
         private const string HTMLEnd = "   </body>\n\r</html>";
 
-        public static void Generate(Form form, Control control, Bitmap bmInput, int outputWidth, bool html)
+        public static void Generate(string CharSet, Control control, Bitmap bmInput, int outputWidth, bool html)
         {
             Task T = Task.Factory.StartNew(() =>
-            {                
-                string CharSet = "";
-                if ((form as Main).textBox1.Text.Trim() != "")
-                    CharSet = (form as Main).textBox1.Text;
-                else
+            {
+                control.BeginInvoke(new Action(() =>
+                {
+                    control.Enabled = false;
+                }));
+                if (CharSet.Trim() == "")
                     CharSet = OutputCharSet;
                 // Группа пикселей ширина / Группа пикселей высота - размер куска пикселей, который будет
                 // Группа на 1 символ. Это удваивается, чтобы избежать прогрессивного округление
@@ -43,7 +44,7 @@ namespace SymbolicArt
 
                     if (html)
                         sbOutput.Append(HTMLBegin);
-
+                int add = 0;
                 for (int row = 1; row <= outputHeight; row++)
                 {
                     double pixelOffSetLeft = 0.0;
@@ -89,7 +90,6 @@ namespace SymbolicArt
                         sbOutput.Append("<br>");
 
                     sbOutput.AppendLine();
-                    
                     //Thread.Sleep(24);
                     pixelOffSetTop += pixelChunkHeight;
                 }
@@ -98,6 +98,7 @@ namespace SymbolicArt
                     sbOutput.Append(HTMLEnd);
                     control.BeginInvoke(new Action(() =>
                     {
+                        control.Enabled = true;
                         control.Text = sbOutput.ToString();
                     }));
             });

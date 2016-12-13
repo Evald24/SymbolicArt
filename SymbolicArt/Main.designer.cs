@@ -38,9 +38,9 @@
             this.OutputHTML = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this._TB_URL = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._TB_Symbols = new System.Windows.Forms.TextBox();
             this.ImageWidth = new System.Windows.Forms.NumericUpDown();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -111,9 +111,9 @@
             this.panel5.Controls.Add(this.OutputHTML);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this._TB_URL);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this._TB_Symbols);
             this.panel5.Controls.Add(this.ImageWidth);
             this.panel5.Controls.Add(this.radioButton2);
             this.panel5.Controls.Add(this.radioButton1);
@@ -161,14 +161,14 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Ссылка на картинку:";
             // 
-            // textBox2
+            // _TB_URL
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this._TB_URL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(25, 202);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(210, 20);
-            this.textBox2.TabIndex = 13;
+            this._TB_URL.Location = new System.Drawing.Point(25, 202);
+            this._TB_URL.Name = "_TB_URL";
+            this._TB_URL.Size = new System.Drawing.Size(210, 20);
+            this._TB_URL.TabIndex = 13;
             // 
             // label3
             // 
@@ -180,15 +180,15 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Используемые символы:";
             // 
-            // textBox1
+            // _TB_Symbols
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this._TB_Symbols.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(25, 249);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(210, 20);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Text = "##@%=+*:-..1,0";
+            this._TB_Symbols.Location = new System.Drawing.Point(25, 249);
+            this._TB_Symbols.Name = "_TB_Symbols";
+            this._TB_Symbols.Size = new System.Drawing.Size(210, 20);
+            this._TB_Symbols.TabIndex = 13;
+            this._TB_Symbols.Text = "##@%=+*:-..1,0";
             // 
             // ImageWidth
             // 
@@ -369,11 +369,11 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.NumericUpDown ImageWidth;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox _TB_Symbols;
         private System.Windows.Forms.CheckBox OutputHTML;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox _TB_URL;
         private System.Windows.Forms.Label _L_Status;
         public System.Windows.Forms.RichTextBox GeneratedText;
     }
