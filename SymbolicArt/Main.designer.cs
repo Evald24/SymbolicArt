@@ -34,7 +34,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.GeneratedText = new System.Windows.Forms.RichTextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this._P_Configure = new System.Windows.Forms.Panel();
             this.OutputHTML = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,19 +42,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this._TB_Symbols = new System.Windows.Forms.TextBox();
             this.ImageWidth = new System.Windows.Forms.NumericUpDown();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this._RB_No = new System.Windows.Forms.RadioButton();
+            this._RB_Yes = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SelectImage = new FYS.Windows.Cotrols.FYS_Button();
             this.Generate = new FYS.Windows.Cotrols.FYS_Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this._L_Status = new System.Windows.Forms.Label();
+            this._PB_Load = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this._P_Configure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._PB_Load)).BeginInit();
             this.SuspendLayout();
             // 
             // ImageDialog
@@ -74,9 +76,10 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this._PB_Load);
             this.panel4.Controls.Add(this.splitter1);
             this.panel4.Controls.Add(this.GeneratedText);
-            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this._P_Configure);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
@@ -106,28 +109,28 @@
             this.GeneratedText.WordWrap = false;
             this.GeneratedText.TextChanged += new System.EventHandler(this.GeneratedText_TextChanged);
             // 
-            // panel5
+            // _P_Configure
             // 
-            this.panel5.Controls.Add(this.OutputHTML);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this._TB_URL);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this._TB_Symbols);
-            this.panel5.Controls.Add(this.ImageWidth);
-            this.panel5.Controls.Add(this.radioButton2);
-            this.panel5.Controls.Add(this.radioButton1);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Controls.Add(this.SelectImage);
-            this.panel5.Controls.Add(this.Generate);
-            this.panel5.Controls.Add(this.pictureBox1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.MinimumSize = new System.Drawing.Size(250, 300);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(250, 450);
-            this.panel5.TabIndex = 6;
+            this._P_Configure.Controls.Add(this.OutputHTML);
+            this._P_Configure.Controls.Add(this.label4);
+            this._P_Configure.Controls.Add(this.label5);
+            this._P_Configure.Controls.Add(this._TB_URL);
+            this._P_Configure.Controls.Add(this.label3);
+            this._P_Configure.Controls.Add(this._TB_Symbols);
+            this._P_Configure.Controls.Add(this.ImageWidth);
+            this._P_Configure.Controls.Add(this._RB_No);
+            this._P_Configure.Controls.Add(this._RB_Yes);
+            this._P_Configure.Controls.Add(this.label2);
+            this._P_Configure.Controls.Add(this.label1);
+            this._P_Configure.Controls.Add(this.SelectImage);
+            this._P_Configure.Controls.Add(this.Generate);
+            this._P_Configure.Controls.Add(this.pictureBox1);
+            this._P_Configure.Dock = System.Windows.Forms.DockStyle.Left;
+            this._P_Configure.Location = new System.Drawing.Point(0, 0);
+            this._P_Configure.MinimumSize = new System.Drawing.Size(250, 300);
+            this._P_Configure.Name = "_P_Configure";
+            this._P_Configure.Size = new System.Drawing.Size(250, 450);
+            this._P_Configure.TabIndex = 6;
             // 
             // OutputHTML
             // 
@@ -209,31 +212,31 @@
             0,
             0});
             // 
-            // radioButton2
+            // _RB_No
             // 
-            this.radioButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(25, 298);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(44, 17);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Нет";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this._RB_No.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._RB_No.AutoSize = true;
+            this._RB_No.Checked = true;
+            this._RB_No.Location = new System.Drawing.Point(25, 298);
+            this._RB_No.Name = "_RB_No";
+            this._RB_No.Size = new System.Drawing.Size(44, 17);
+            this._RB_No.TabIndex = 10;
+            this._RB_No.TabStop = true;
+            this._RB_No.Text = "Нет";
+            this._RB_No.UseVisualStyleBackColor = true;
+            this._RB_No.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // radioButton1
+            // _RB_Yes
             // 
-            this.radioButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(80, 298);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(40, 17);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.Text = "Да";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this._RB_Yes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._RB_Yes.AutoSize = true;
+            this._RB_Yes.Location = new System.Drawing.Point(80, 298);
+            this._RB_Yes.Name = "_RB_Yes";
+            this._RB_Yes.Size = new System.Drawing.Size(40, 17);
+            this._RB_Yes.TabIndex = 10;
+            this._RB_Yes.Text = "Да";
+            this._RB_Yes.UseVisualStyleBackColor = true;
+            this._RB_Yes.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // label2
             // 
@@ -326,6 +329,19 @@
             this._L_Status.TabIndex = 9;
             this._L_Status.Text = "Выберите изображение на компьютере или вставьте ссылку";
             // 
+            // _PB_Load
+            // 
+            this._PB_Load.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._PB_Load.Enabled = false;
+            this._PB_Load.Image = global::SymbolicArt.Properties.Resources.loading;
+            this._PB_Load.Location = new System.Drawing.Point(424, 167);
+            this._PB_Load.Name = "_PB_Load";
+            this._PB_Load.Size = new System.Drawing.Size(128, 128);
+            this._PB_Load.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this._PB_Load.TabIndex = 15;
+            this._PB_Load.TabStop = false;
+            this._PB_Load.Visible = false;
+            // 
             // Main
             // 
             this.AllowDrop = true;
@@ -344,10 +360,12 @@
             this.Controls.SetChildIndex(this._L_Status, 0);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.panel4.PerformLayout();
+            this._P_Configure.ResumeLayout(false);
+            this._P_Configure.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._PB_Load)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,12 +376,12 @@
         private System.Windows.Forms.OpenFileDialog ImageDialog;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel _P_Configure;
         private FYS.Windows.Cotrols.FYS_Button SelectImage;
         private FYS.Windows.Cotrols.FYS_Button Generate;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton _RB_No;
+        private System.Windows.Forms.RadioButton _RB_Yes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Splitter splitter1;
@@ -376,6 +394,7 @@
         public System.Windows.Forms.TextBox _TB_URL;
         private System.Windows.Forms.Label _L_Status;
         public System.Windows.Forms.RichTextBox GeneratedText;
+        private System.Windows.Forms.PictureBox _PB_Load;
     }
 }
 

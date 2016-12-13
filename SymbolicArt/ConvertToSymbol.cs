@@ -44,7 +44,6 @@ namespace SymbolicArt
 
                     if (html)
                         sbOutput.Append(HTMLBegin);
-                int add = 0;
                 for (int row = 1; row <= outputHeight; row++)
                 {
                     double pixelOffSetLeft = 0.0;
